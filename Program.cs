@@ -1,57 +1,23 @@
-﻿// concatenazione
-string amico = "Gigi";
-string saluto = "Ciao " + amico + "!";
+﻿// operatori
+int x = 10; // = assegnazione
 
-Console.WriteLine(saluto);
+var uguale = 10 == x; // confronto
+var diverso = 10 != x;
 
-// interpolazione
-Console.WriteLine($"Ciao {amico}!");
+var diverso2 = !uguale;
 
-var altroAmico = "Mario";
-Console.WriteLine($"I miei amici sono {amico} e {altroAmico}.");
+// incremento
+x++; // incrementa di 1 x = x + 1
 
-// proprietà delle stringhe
-Console.WriteLine($"Il nome {amico} ha {amico.Length} lettere.");
+x += 9; // x = x + 9
 
-// conversione
-char a = 'a';
-int eta = 31;
-double altezza = 1.56;
 
-Console.WriteLine($"La mia amica {amico}{a} ha {eta} anni ed è alta {altezza} metri.");
+// operatori logici
+bool bello = true;
+bool buono = false;
 
-// operazioni sulle stringhe
-string saluti = "       Ciao Mondo!       ";
-Console.WriteLine($"[{saluti}]");
+var and = bello && buono;
+var or = bello || buono;
 
-Console.WriteLine(saluti.Trim());
-
-// replace
-string ciao = "Ciao Mondo!";
-Console.WriteLine(ciao);
-
-string ciao2 = ciao.Replace("Ciao", "Buongiorno");
-Console.WriteLine(ciao2);
-
-ciao2 = ciao.Replace("ciao", "Buongiorno", true, null);
-Console.WriteLine(ciao2.ToUpper());
-
-// ricercare
-string songLyrics = "Tu dici addio, io dico arrivederci";
-Console.WriteLine(songLyrics.Contains("addio"));
-Console.WriteLine(songLyrics.StartsWith("tu", true, null));
-
-string albero = "albERo";
-Console.WriteLine(albero[2]);
-
-Console.WriteLine(albero.Substring(2, 2));
-
-// range operator
-Console.WriteLine(albero[2..5]);
-Console.WriteLine(albero[2..]);
-Console.WriteLine(albero[..3]);
-Console.WriteLine(albero[..]);
-
-// trasformare "albERo" in "Albero" usando interpolazione di stringhe e range operator
-// scrivere a console
-Console.WriteLine($"{albero[..1].ToUpper()}{albero[1..].ToLower()}");
+// matematici
+var r = 5 % 2; // ritorna il RESTO di una divisione
