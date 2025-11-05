@@ -1,66 +1,57 @@
-﻿// See https://aka.ms/new-console-template for more information
-Console.WriteLine("Hello, World!");
+﻿// concatenazione
+string amico = "Gigi";
+string saluto = "Ciao " + amico + "!";
 
-// dichiarazione
-int numero;
-numero = 5;
+Console.WriteLine(saluto);
 
-// dichiarazione e assegnazione con type inference
-var s = "ciao";
+// interpolazione
+Console.WriteLine($"Ciao {amico}!");
 
-int n = 9;
+var altroAmico = "Mario";
+Console.WriteLine($"I miei amici sono {amico} e {altroAmico}.");
 
-int n1, n2, n3;
+// proprietà delle stringhe
+Console.WriteLine($"Il nome {amico} ha {amico.Length} lettere.");
 
-string pippo = "pippo";
+// conversione
+char a = 'a';
+int eta = 31;
+double altezza = 1.56;
 
-bool sposato = false;
+Console.WriteLine($"La mia amica {amico}{a} ha {eta} anni ed è alta {altezza} metri.");
 
-// tipi numeri decimali
-double virgola = 7.9;
-decimal d = 7.9M;
-float f = 76.8F;
+// operazioni sulle stringhe
+string saluti = "       Ciao Mondo!       ";
+Console.WriteLine($"[{saluti}]");
 
-// data e ora
-DateTime data;
+Console.WriteLine(saluti.Trim());
 
-// casting
-int five = 5;
+// replace
+string ciao = "Ciao Mondo!";
+Console.WriteLine(ciao);
 
-var fiveDouble = (double)five;
+string ciao2 = ciao.Replace("Ciao", "Buongiorno");
+Console.WriteLine(ciao2);
 
-// casting implicito (no perdita di dati)
-double fiveDouble2 = five;
-long fiveLong = five;
+ciao2 = ciao.Replace("ciao", "Buongiorno", true, null);
+Console.WriteLine(ciao2.ToUpper());
 
-// casting esplicito
-double dblFour = 4.7;
-int intFour = (int)dblFour;
+// ricercare
+string songLyrics = "Tu dici addio, io dico arrivederci";
+Console.WriteLine(songLyrics.Contains("addio"));
+Console.WriteLine(songLyrics.StartsWith("tu", true, null));
 
-int fourInt = Convert.ToInt32(dblFour);
+string albero = "albERo";
+Console.WriteLine(albero[2]);
 
-// parsing
-string strTwo = "due";
-int twoInteger = int.Parse(strTwo);
+Console.WriteLine(albero.Substring(2, 2));
 
-DateTime oggi = DateTime.Parse("05/11/2025");
+// range operator
+Console.WriteLine(albero[2..5]);
+Console.WriteLine(albero[2..]);
+Console.WriteLine(albero[..3]);
+Console.WriteLine(albero[..]);
 
-// operatore is
-var mioValore = 6.5M;
-
-bool isDecimal = mioValore is decimal;
-
-// operatore as
-string testString = "Test";
-object objString = (object)testString;
-
-var test2 = objString as string;
-
-// tipi nullable
-bool? maggiorenne = null;
-maggiorenne = true;
-
-int? b = 10;
-
-// operatore ??
-int f2 = b ?? -1;
+// trasformare "albERo" in "Albero" usando interpolazione di stringhe e range operator
+// scrivere a console
+Console.WriteLine($"{albero[..1].ToUpper()}{albero[1..].ToLower()}");
