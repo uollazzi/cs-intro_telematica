@@ -1,23 +1,47 @@
-﻿// operatori
-int x = 10; // = assegnazione
+﻿// normalmente in C# array e liste contengono un elenco di dati dello stesso tipo
+// array
 
-var uguale = 10 == x; // confronto
-var diverso = 10 != x;
+// dichiarazione specificando dimensione
+using System.Runtime.InteropServices;
 
-var diverso2 = !uguale;
-
-// incremento
-x++; // incrementa di 1 x = x + 1
-
-x += 9; // x = x + 9
+int[] arr1 = new int[5]; // crea un array di dimensione 5
 
 
-// operatori logici
-bool bello = true;
-bool buono = false;
+// dichiarazione specificando gli elementi
+int[] arr2 = new int[] { 1, 5, 6, 9 };
+int[] arr3 = [2, 5, 7];
 
-var and = bello && buono;
-var or = bello || buono;
+Stagione nascita = Stagione.Inverno;
+Console.WriteLine((int)Stagione.Estate);
 
-// matematici
-var r = 5 % 2; // ritorna il RESTO di una divisione
+Mese[] mesiCaldi = [Mese.Giugno, Mese.Luglio, Mese.Agosto];
+
+Console.WriteLine(mesiCaldi[0]);
+
+// generics
+// introduce il concetto di tipo come parametro
+List<int> listaInteri = [4, 7, 9];
+List<int> listaInteri2 = new List<int>() { 4, 7, 9 };
+
+var secondoNumero = listaInteri[1];
+
+listaInteri.Add(11);
+int i = listaInteri.IndexOf(7); // dimmi a che posizione (indice) si trova il valore 7
+Console.WriteLine(i);
+
+i = listaInteri.IndexOf(999);
+Console.WriteLine(i);
+
+Console.WriteLine(listaInteri.Contains(999));
+
+listaInteri.Remove(9);
+Console.WriteLine(string.Join(",", listaInteri));
+
+listaInteri.Sort();
+Console.WriteLine(string.Join(",", listaInteri));
+
+listaInteri.Reverse();
+Console.WriteLine(string.Join(",", listaInteri));
+
+listaInteri.Clear();
+Console.WriteLine(string.Join(",", listaInteri));
