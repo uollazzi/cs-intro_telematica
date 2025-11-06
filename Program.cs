@@ -1,107 +1,86 @@
-﻿// normalmente in C# array e liste contengono un elenco di dati dello stesso tipo
-// array
+﻿// if
+int eta = 14;
 
-// dichiarazione specificando dimensione
-using System.Runtime.InteropServices;
-
-int[] arr1 = new int[5]; // crea un array di dimensione 5
-
-
-// dichiarazione specificando gli elementi
-int[] arr2 = new int[] { 1, 5, 6, 9 };
-int[] arr3 = [2, 5, 7];
-
-Stagione nascita = Stagione.Inverno;
-Console.WriteLine((int)Stagione.Estate);
-
-Mese[] mesiCaldi = [Mese.Giugno, Mese.Luglio, Mese.Agosto];
-
-Console.WriteLine(mesiCaldi[0]);
-
-// generics
-// introduce il concetto di tipo come parametro
-List<int> listaInteri = [4, 7, 9];
-List<int> listaInteri2 = new List<int>() { 4, 7, 9 };
-
-var secondoNumero = listaInteri[1];
-
-listaInteri.Add(11);
-int i = listaInteri.IndexOf(7); // dimmi a che posizione (indice) si trova il valore 7
-Console.WriteLine(i);
-
-i = listaInteri.IndexOf(999);
-Console.WriteLine(i);
-
-Console.WriteLine(listaInteri.Contains(999));
-
-listaInteri.Remove(9);
-Console.WriteLine(string.Join(",", listaInteri));
-
-listaInteri.Sort();
-Console.WriteLine(string.Join(",", listaInteri));
-
-listaInteri.Reverse();
-Console.WriteLine(string.Join(",", listaInteri));
-
-listaInteri.Clear();
-Console.WriteLine(string.Join(",", listaInteri));
-
-// cicli
-for (int t = 0; t < 3; t++)
+if (eta > 18)
 {
-    Console.WriteLine(t);
+    Console.WriteLine($"Hai {eta} anni e quindi sei maggiorenne.");
+}
+else if (eta == 18)
+{
+    Console.WriteLine($"Hai {eta} anni e quindi sei appena maggiorenne.");
+}
+else
+{
+    Console.WriteLine($"Hai {eta} anni e quindi sei minorenne.");
 }
 
-List<string> nomi = ["Gigi", "Mario", "Anna"];
+// operatore ternario
+string etichetta = "";
 
-// alternativa for
-for (int n = 0; n < nomi.Count; n++)
+// alternativa operatore ternario
+etichetta = eta >= 18 ? "maggiorenne" : "minorenne";
+
+// alternativa if classico
+if (eta >= 18)
 {
-    Console.WriteLine(nomi[n]);
+    etichetta = "maggiorenne";
+}
+else
+{
+    etichetta = "minorenne";
 }
 
-// alternativa foreach
-foreach (var nome in nomi)
+// switch
+Mese meseCorrente = Mese.Novembre;
+
+switch (meseCorrente)
 {
-    Console.WriteLine(nome);
+    case Mese.Gennaio:
+    case Mese.Marzo:
+        Console.WriteLine($"{meseCorrente} è il mese numero {(int)meseCorrente} dell'anno.");
+        break;
+    case Mese.Febbraio:
+        Console.WriteLine($"{meseCorrente} è il mese numero {(int)meseCorrente} dell'anno, quello corto");
+        break;
+    default:
+        Console.WriteLine("Altro mese dopo Febbraio");
+        break;
 }
 
-List<int> numeri = [37, 6, 87, 63, 61];
+// esercizio
+Console.WriteLine("Inserire un mese (1-12)");
+var m = Console.ReadLine();
 
-// trovare il numero più grande della lista utilizzando un ciclo
-int numeroMax = 0;
-foreach (var numero in numeri)
+// in base al mese inserito dire quanti giorni ha
+Mese meseCorrente2 = Mese.Febbraio;
+if (m != null)
 {
-    if (numero > numeroMax)
-    {
-        numeroMax = numero;
-    }
-}
-Console.WriteLine($"Numero massimo: {numeroMax}");
-
-// ciclo while
-var contatore = 0;
-while (contatore < 5)
-{
-    Console.WriteLine($"Ciclo while: {contatore}");
-    contatore++;
+    int meseNumero = Convert.ToInt32(m);
+    Console.WriteLine(meseNumero);
+    meseCorrente2 = (Mese)meseNumero;
+    Console.WriteLine(meseCorrente2);
 }
 
-// controllo cicli
-contatore = 0;
-while (contatore < 10)
+switch (meseCorrente2)
 {
-    if (contatore == 1)
-    {
-        contatore++;
-        continue; // non scrive l'1
-    }
-
-    if (contatore == 8)
-    {
-        break; // esce a 8
-    }
-
-    Console.WriteLine($"Ciclo while advanced: {contatore}");
-    contatore++;
+    case Mese.Novembre:
+    case Mese.Aprile:
+    case Mese.Giugno:
+    case Mese.Settembre:
+        Console.WriteLine($"{meseCorrente} ha 30 giorni.");
+        break;
+    case Mese.Febbraio:
+        Console.WriteLine($"{meseCorrente} ha 28 giorni.");
+        break;
+    case Mese.Gennaio:
+    case Mese.Marzo:
+    case Mese.Maggio:
+    case Mese.Luglio:
+    case Mese.Agosto:
+    case Mese.Ottobre:
+        Console.WriteLine($"{meseCorrente} ha 31 giorni.");
+        break;
+    default:
+        Console.WriteLine($"Sei ubriaco?");
+        break;
 }
