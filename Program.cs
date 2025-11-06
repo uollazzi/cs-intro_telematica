@@ -45,3 +45,63 @@ Console.WriteLine(string.Join(",", listaInteri));
 
 listaInteri.Clear();
 Console.WriteLine(string.Join(",", listaInteri));
+
+// cicli
+for (int t = 0; t < 3; t++)
+{
+    Console.WriteLine(t);
+}
+
+List<string> nomi = ["Gigi", "Mario", "Anna"];
+
+// alternativa for
+for (int n = 0; n < nomi.Count; n++)
+{
+    Console.WriteLine(nomi[n]);
+}
+
+// alternativa foreach
+foreach (var nome in nomi)
+{
+    Console.WriteLine(nome);
+}
+
+List<int> numeri = [37, 6, 87, 63, 61];
+
+// trovare il numero più grande della lista utilizzando un ciclo
+int numeroMax = 0;
+foreach (var numero in numeri)
+{
+    if (numero > numeroMax)
+    {
+        numeroMax = numero;
+    }
+}
+Console.WriteLine($"Numero massimo: {numeroMax}");
+
+// ciclo while
+var contatore = 0;
+while (contatore < 5)
+{
+    Console.WriteLine($"Ciclo while: {contatore}");
+    contatore++;
+}
+
+// controllo cicli
+contatore = 0;
+while (contatore < 10)
+{
+    if (contatore == 1)
+    {
+        contatore++;
+        continue; // non scrive l'1
+    }
+
+    if (contatore == 8)
+    {
+        break; // esce a 8
+    }
+
+    Console.WriteLine($"Ciclo while advanced: {contatore}");
+    contatore++;
+}
